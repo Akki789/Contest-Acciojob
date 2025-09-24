@@ -1,0 +1,387 @@
+/* =========================
+   Base & Layout
+   ========================= */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #fafafa;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+.site-header, .site-footer {
+  background: #0f172a;
+  color: #fff;
+}
+.site-header .tagline { opacity: 0.85; margin-top: 4px; }
+.site-header .container, .site-footer .container { padding-block: 20px; }
+
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #111;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 1000; /* z-index: stacking order when elements overlap (e.g., keep skip-link above) */
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+/* Sections */
+section { margin-block: 40px; }
+h2 { margin-bottom: 12px; font-size: 1.6rem; }
+
+/* Reusable card */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+
+/* =========================
+   Q1 — TABLE
+   ========================= */
+.pricing-table {
+  width: 100%;
+
+  /* border-collapse: separate keeps cell spacing; collapse merges borders into single lines. */
+  border-collapse: separate;
+
+  /* border-spacing: controls the space between table cells when not collapsed. */
+  border-spacing: 0;
+
+  text-align: left;
+}
+
+/* caption-side: where to place the <caption> (top or bottom). */
+.pricing-table caption {
+  caption-side: top;
+  font-weight: 700;
+  padding: 8px 0 12px;
+}
+
+.pricing-table thead th {
+  background: #f1f5f9;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 12px;
+}
+.pricing-table tbody td,
+.pricing-table tbody th,
+.pricing-table tfoot td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.pricing-table tfoot td {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+/* =========================
+   Q2 — FORM
+   ========================= */
+.reg-form { display: block; }
+
+/* NOTE: The 'grid-2' name is just a class name (not CSS Grid). */
+.grid-2 > .field { display: inline-block; width: 48%; vertical-align: top; }
+/* vertical-align: aligns inline/inline-block boxes baseline/middle/top; here it prevents uneven baselines. */
+@media (max-width: 700px) {
+  .grid-2 > .field { width: 100%; }
+}
+
+.field { margin-bottom: 14px; }
+.field label, .field legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+
+  /* outline: a line drawn outside the border (doesn’t affect layout). Helpful for focus styles. */
+  outline: none;
+
+  border-radius: 8px;
+  background: #fff;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 3px solid rgba(59,130,246,0.4);
+  border-color: #3b82f6;
+}
+
+.choice { display: inline-block; margin-right: 16px; }
+.field.checkbox { display: inline-block; }
+
+.btn {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+}
+.btn:focus { outline: 3px solid rgba(59,130,246,0.5); }
+
+/* =========================
+   Q3 — HERO (background)
+   ========================= */
+.hero {
+  min-height: 50vh;
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: center;
+  padding: 24px;
+  color: white;
+
+  /* gradient: smooth color transition; used here as a dark overlay */
+  /* Multiple backgrounds: gradient first, then image */
+  background:
+    linear-gradient( to bottom right, rgba(15, 23, 42, 0.65), rgba(2, 6, 23, 0.65) ),
+    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1800&auto=format&fit=crop") center/cover no-repeat;
+  /* center/cover: center aligns the image; cover scales to fill while preserving aspect ratio. */
+
+  /* place-items: centers content in a grid container (shortcut for align-items + justify-items). We’re not using CSS Grid here,
+     so we won’t use place-items—just keeping the comment to explain the term for later. */
+
+}
+
+/* =========================
+   Q4 — TYPOGRAPHY
+   ========================= */
+.typo-card { font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+.typo-title { font-weight: 700; letter-spacing: 0.2px; margin: 0 0 8px; }
+.typo-body {
+  max-width: 70ch; /* ~65–75ch is a comfortable line-length for reading. */
+  /* TODO(Q4): tweak line-height to ~1.7 */
+  line-height: 1.7;
+  /* TODO(Q4): add letter-spacing if needed */
+  letter-spacing: 0.3px;
+  /* TODO(Q4): add text-transform (e.g., none / capitalize) and a link style (text-decoration) */
+  text-transform: none;
+  text-decoration: none;
+  margin: 0 0 12px;
+}
+.typo-card a { text-decoration: underline; text-underline-offset: 3px; }
+blockquote {
+  margin: 0;
+  padding: 12px 16px;
+  border-left: 4px solid #111827;
+  background: #f8fafc;
+  font-style: italic;
+}
+.typo-cite { margin-top: 8px; }
+.caps { text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* =========================
+   Q5 — NAV (display)
+   ========================= */
+.nav-demo { overflow-x: auto; }
+/* white-space: nowrap keeps inline items on a single line (prevents wrapping). */
+.nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap; /* explained above */
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+.nav-list > li {
+  /* TODO(Q5): Make items horizontal using display property*/
+  display: inline-block; 
+  margin-right: 16px;  
+  
+}
+.nav-list > li a {
+  display: inline-block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #111827;
+}
+.nav-list > li a:hover { text-decoration: underline; }
+.nav-list > li + li a { border-left: 1px solid #e5e7eb; }
+
+/* =========================
+   Q6 — POSITION
+   ========================= */
+.product-card {
+  /* TODO(Q6): Make this the containing block for absolute children with position*/
+  position: relative;
+  overflow: hidden;
+}
+.product-figure { margin: 0 0 8px; }
+.product-img {
+  width: 100%;
+  height: 240px;
+
+  /* object-fit: cover makes the image fill the box while cropping edges (keeps aspect ratio). */
+  object-fit: cover;
+  /* object-position: decides image position */
+  object-position: center;
+
+  border-radius: 10px;
+  display: block;
+}
+.badge {
+  /* TODO(Q6): Absolutely position at top:12px; left:12px; */
+  background: #ef4444;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  top: 12px;
+  left: 12px;
+  position: absolute;
+}
+.back-to-top {
+  /* Fixed button anchored to viewport corner */
+  position: fixed;  /* stays put when you scroll */
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  display: inline-block;
+  line-height: 46px;
+  text-align: center;
+  background: #0f172a;
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  z-index: 50; /* keep above content */
+}
+.back-to-top:focus {
+  /* outline: focus indicator that doesn’t shift layout (unlike border) */
+  outline: 3px solid rgba(59,130,246,0.6);
+  outline-offset: 3px;
+}
+
+/* =========================
+   Q7 — GALLERY (transform + transition)
+   ========================= */
+.gallery { font-size: 0; } /* kills inline-block gaps */
+.tile {
+  position: relative;
+  width: 32.33%;
+  margin: 0 1% 1.2% 0;
+  display: inline-block; /* horizontal tiles without flex/grid */
+  vertical-align: top;   /* avoid baseline gap; see note on vertical-align above */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+.tile:nth-child(3n) { margin-right: 0; }
+.tile img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;   /* explained above */
+  transform: scale(1);
+  transition: transform 300ms ease; /* smooth change over time (transition) */
+}
+.tile figcaption {
+  position: absolute;
+  top: 50%;              /* vertical center */
+  left: 50%;             /* horizontal center */
+  transform: translate(-50%, -50%); /* perfect centering */
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: opacity 300ms ease;
+  text-align: center;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent bg for clarity */
+  border-radius: 6px;
+}
+/* TODO(Q7): On .tile:hover image should scale */
+/* TODO(Q7): On .tile:hover figcaption should be opaque */
+.tile img {
+  transition: transform 0.3s ease;
+}
+
+.tile figcaption {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tile:hover img {
+  transform: scale(1.05);
+}
+
+.tile:hover figcaption {
+  opacity: 1;
+}
+
+
+@media (max-width: 720px) { .tile { width: 48.5%; } }
+@media (max-width: 480px) { .tile { width: 100%; } }
+
+/* =========================
+   Q8 — ANIMATIONS
+   ========================= */
+
+/* Loader ring — students add keyframes below */
+.loader {
+  width: 58px;
+  height: 58px;
+  border: 6px solid #e5e7eb;
+  border-top-color: #111827;
+  border-radius: 50%;
+
+  /* TODO(Q8-A): Animate rotation */
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  /* TODO(Q8-A): rotate from 0deg to 360deg using*/
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bouncing ball — scaffold */
+.anim-row { margin-top: 14px; }
+.bounce-wrap {
+  width: 80px; height: 120px; position: relative; display: inline-block;
+}
+.ball {
+  width: 36px; height: 36px; background: #111827; border-radius: 50%;
+  position: absolute; left: 50%; transform: translateX(-50%);
+  /* TODO(Q8-B): animation */
+  animation: bounce 1s ease-in-out infinite;
+}
+.shadow {
+  position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%);
+  width: 44px; height: 10px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.25), rgba(0,0,0,0));
+  /* TODO(Q8-B): animation */
+  animation: squish 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  /* TODO(Q8-B): move .ball top position 6px -> 74px -> 6px */
+   0%, 100% { top: 6px; }
+  50% { top: 74px; }
+}
+
+@keyframes squish {
+  /* TODO(Q8-B): widen/narrow shadow & change opacity to simulate squash */
+  0%, 100% { transform: translateX(-50%) scaleX(1); opacity: 0.25; }
+  50% { transform: translateX(-50%) scaleX(1.5); opacity: 0.4; }
+}

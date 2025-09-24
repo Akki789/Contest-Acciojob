@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML & CSS Contest — Starter</title>
+
+    <!-- Q4 uses a Google Font; students don't need to edit this -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <h1>HTML & CSS Contest</h1>
+        <p class="tagline">Finish all TODOs in 90 minutes</p>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <!-- =========================
+         Q1 — TABLE (HTML: tables)
+         ========================= -->
+      <section aria-labelledby="q1">
+        <!-- aria-labelledby: ties the <section> to the heading with matching id for accessibility (screen readers). -->
+        <h2 id="q1">Q1 — Product Pricing Table</h2>
+
+        <div class="card">
+          <table class="pricing-table">
+            <!-- caption: a table title; announced by screen readers and shows above/below the table (position controlled in CSS). -->
+            <caption>
+              Cloud Storage Plans — Comparison
+            </caption>
+
+            <thead>
+              <tr>
+                <!-- scope="col": identifies this <th> as a column header for accessibility. -->
+                <th scope="col">Plan</th>
+                <th scope="col">Storage</th>
+                <th scope="col">Bandwidth</th>
+                <th scope="col">Support</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <!-- TODO(Q1): Add 3 plan rows (Starter, Pro, Business) using <th scope="row"> for the plan name + <td> for the rest. -->
+              <!-- TODO(Q1): Add one extra row to show a note (e.g., “Annual billing saves 20%”). -->
+              <tr>
+                <th scope="row">Starter</th>
+                <td>50 GB</td>
+                <td>500 GB</td>
+                <td>Email only</td>
+                <td>$5/month</td>
+              </tr>
+              <tr>
+                <th scope="row">Pro</th>
+                <td>200 GB</td>
+                <td>2 TB</td>
+                <td>Email + Chat</td>
+                <td>$15/month</td>
+              </tr>
+              <tr>
+                <th scope="row">Business</th>
+                <td>2 TB</td>
+                <td>Unlimited</td>
+                <td>24/7 Phone + Priority</td>
+                <td>$30/month</td>
+              </tr>
+              <tr>
+                <td colspan="5">Annual billing saves 20%</td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <td colspan="5">All prices in USD</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+
+      <!-- =========================
+         Q2 — FORM (HTML: forms)
+         ========================= -->
+      <section aria-labelledby="q2">
+        <h2 id="q2">Q2 — Course Registration Form</h2>
+        <div class="card">
+          <!-- novalidate: disables browser’s default UI for validation bubbles; we’ll rely on attributes to show intent. -->
+          <form class="reg-form" action="#" method="post" novalidate>
+            <div class="grid-2">
+              <!-- TODO(Q2): Add "Full Name" -->
+              <div class="field">
+                <label for="fullname">Full Name</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Your full name"
+                  required
+                />
+              </div>
+              <!-- TODO(Q2): Add "Email" -->
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="akash@email.com"
+                  required
+                />
+              </div>
+              <!-- TODO(Q2): Add "Phone"-->
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="9868498585"
+                  required
+                />
+              </div>
+              <!-- TODO(Q2): Add "Course" <select> with 3+ options -->
+              <div class="field">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                  <option value="">-- Choose --</option>
+                  <option value="html">HTML Basics</option>
+                  <option value="css">CSS for Beginners</option>
+                  <option value="js">JavaScript Essentials</option>
+                  <option value="react">React Fundamentals</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- fieldset/legend: groups related controls (radios) with an accessible label. -->
+            <fieldset class="field">
+              <legend>Mode</legend>
+              <!-- TODO(Q2): Create 2 radios (Online, Offline) -->
+              <div class="choice">
+                <label>
+                  <input type="radio" name="mode" value="online" required />
+                  Online
+                </label>
+              </div>
+
+              <div class="choice">
+                <label>
+                  <input type="radio" name="mode" value="offline" />
+                  Offline
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- TODO(Q2): Add a <textarea> -->
+                <div class=" field textarea">
+            <label for="comments">Short Note</label>
+            <textarea
+              id="comments"
+              name="comments"
+              rows="4"
+              placeholder="Tell us you goals"
+            ></textarea>
+            </div>
+            <!-- TODO(Q2): Add a "Terms" checkbox -->
+            <div class="field checkbox" >
+            <label>
+              <input type="checkbox" name="terms" required />
+              I agree to the terms and conditions
+            </label>
+            </div>
+            <!-- TODO(Q2): Add a Submit button -->
+            <button class="btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- =======================================
+         Q3 — HERO (CSS: background properties)
+         ======================================= -->
+      <section aria-labelledby="q3">
+        <h2 id="q3">Q3 — Hero Banner</h2>
+
+        <!-- The visual is mostly CSS. Students just add text content below. -->
+        <div class="hero">
+          <div class="hero__content">
+            <!-- TODO(Q3): Write a short headline and a subheading inside this hero -->
+            <h3> Build Beautiful UIs</h3>
+            <p>Master HTML & CSS with visual challenges.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================
+         Q4 — TYPOGRAPHY (font & text properties)
+         ======================================= -->
+      <section aria-labelledby="q4">
+        <h2 id="q4">Q4 — Typography Card</h2>
+        <article class="typo-card card">
+          <h3 class="typo-title">Good Typography = Good UX</h3>
+
+          <p class="typo-body">
+            <!-- TODO(Q4): Adjust CSS in style.css as required. -->
+            Thoughtful fonts, comfortable spacing, and consistent contrast make
+            content easy to read.
+            <a href="">Learn more</a>
+          </p>
+
+          <!-- blockquote: for quoted content; cite attribute: the source URL or reference of the quote -->
+          <blockquote cite="https://www.w3.org/TR/WCAG21/">
+            “Content must be perceivable, operable, understandable, and robust.”
+          </blockquote>
+          <p class="typo-cite">
+            — <span class="caps">W3C</span>,
+            <a
+              href="https://www.w3.org/TR/WCAG21/"
+              target="_blank"
+              rel="noreferrer"
+              >WCAG</a
+            >
+          </p>
+        </article>
+      </section>
+
+      <!-- ==================================
+         Q5 — NAV (CSS: display)
+         ================================== -->
+      <section aria-labelledby="q5">
+        <h2 id="q5">Q5 — Horizontal Nav (no flex/grid)</h2>
+        <nav class="nav-demo card" aria-label="Demo navigation">
+          <ul class="nav-list">
+            <!-- TODO(Q5): Keep markup; make these list items horizontal without flexbox or grid -->
+            <li><a href="#q1">Pricing</a></li>
+            <li><a href="#q2">Register</a></li>
+            <li><a href="#q3">Hero</a></li>
+            <li><a href="#q6">Card</a></li>
+            <li><a href="#q7">Gallery</a></li>
+            <li><a href="#q8">Animation</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <!-- ===============================================
+         Q6 — POSITION (relative, absolute, fixed)
+         =============================================== -->
+      <section aria-labelledby="q6">
+        <h2 id="q6">Q6 — Badge & Back-to-Top</h2>
+
+        <div class="product-card card">
+          <!-- figure/figcaption: semantic wrapper for media + caption text -->
+          <figure class="product-figure">
+            <img
+              src="https://images.unsplash.com/photo-1533379007656-3a10925da2e2?q=80&w=1120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Wireless headphones on a desk"
+              class="product-img"
+            />
+            <figcaption>Studio Headphones</figcaption>
+          </figure>
+
+          <!-- TODO(Q6): Absolutely position this badge at the top-left of the card.
+             Remember: the containing block (product-card) must be position: relative. -->
+          <span class="badge">NEW</span>
+
+          <div class="product-body">
+            <h3>Studio Headphones</h3>
+            <p>Crisp highs, deep bass, and comfort for all-day focus.</p>
+          </div>
+        </div>
+
+        <!-- Fixed back-to-top button; students don’t need to alter href -->
+        <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
+      </section>
+
+      <!-- ============================================================
+         Q7 — GALLERY (transform + transition; no flex/grid layout)
+         ============================================================ -->
+      <section aria-labelledby="q7">
+        <h2 id="q7">Q7 — Gallery Hover Effects</h2>
+
+        <div class="gallery">
+          <!-- Each tile is a figure with an img and a caption overlay -->
+          <figure class="tile">
+            <img
+              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
+              alt="Laptop on a wooden table"
+            />
+            <figcaption>Work Minimal</figcaption>
+          </figure>
+
+          <figure class="tile">
+            <img
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"
+              alt="Mountain range at sunset"
+            />
+            <figcaption>Golden Peaks</figcaption>
+          </figure>
+
+          <figure class="tile">
+            <img
+              src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop"
+              alt="City skyline"
+            />
+            <figcaption>Skyline</figcaption>
+          </figure>
+        </div>
+
+        <!-- TODO(Q7): In CSS, on .tile:hover
+           - zoom in the image
+           - fade in the caption -->
+      </section>
+
+      <!-- =======================================
+         Q8 — ANIMATION (@keyframes)
+         ======================================= -->
+      <section aria-labelledby="q8">
+        <h2 id="q8">Q8 — CSS Animation</h2>
+
+        <div class="anim-row">
+          <!-- Loader: students add @keyframes in CSS (already scaffolded) -->
+          <div class="loader" aria-label="Loading animation"></div>
+
+          <!-- Bouncing ball: students refine keyframes (already scaffolded) -->
+          <div class="bounce-wrap" aria-label="Bouncing ball animation">
+            <div class="ball"></div>
+            <div class="shadow"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Submit your folder with all TODOs completed.</p>
+      </div>
+    </footer>
+  </body>
+</html>
