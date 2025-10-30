@@ -1,0 +1,43 @@
+<!-- Project: Student Manager (OOP + DOM Integration)
+ Requirements:
+ 1. Create a Student class with properties: name, course, marks and a method getGrade() (returns
+ “Pass” if marks ≥ 40 else “Fail”).
+ 2. On page, create a form (name, course, marks). On submit, create a new Student object and
+ append details in a table (Name | Course | Marks | Grade).
+ 3. Save all students in localStorage and restore data on reload.
+ Evaluation Criteria:
+ • Proper class and this usage — 10 marks
+ • Correct DOM creation and update logic — 10 marks
+ • Persistent storage via localStorage — 10 marks -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="myform">
+      Name : <input type="text" placeholder="Your Name" id="name" /><br />
+      Course : <input type="text" placeholder="Your Course" id="course" /><br />
+      Marks : <input type="number" placeholder="Your Marks" id="marks" /><br />
+      <button type="submit">Add student</button>
+    </form>
+
+    <table id="student">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Marks</th>
+          <th>Grade</th>
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+    </table>
+
+    <script src="app.js"></script>
+  </body>
+</html>
