@@ -1,0 +1,77 @@
+/* General page layout */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 40px;
+  color: #222;
+}
+
+/* Form styling */
+form {
+  background: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #999;
+}
+
+form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #343a40;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  body {
+    margin: 15px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  table {
+    font-size: 14px;
+  }
+}
